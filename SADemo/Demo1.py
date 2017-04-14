@@ -5,7 +5,7 @@ actuals  = "Actuals"
 myGroup  = "My Points"
 targetGroup = "Measured Points"
 singlePointProfile = "Single Pt. To SA"
-saInstrument = "Faro Vantage"
+saInstrument = "Leica AT960/930"
 fitTolerance = 0.002
 
 myPoints = [ Point3D(10,10,10),
