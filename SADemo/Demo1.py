@@ -1,16 +1,20 @@
 from SATools import *
 ## Data
 nominals = "Nominals"
-actuals  = "Actuals"
+actuals  = "Actually"
 myGroup  = "My Points"
 targetGroup = "Measured Points"
 singlePointProfile = "Single Pt. To SA"
-saInstrument = "Faro Vantage"
+saInstrument = "Leica AT960/930"
 fitTolerance = 0.002
 
 myPoints = [ Point3D(10,10,10),
              Point3D(10,20,10),
-             Point3D(10,10,20) ]
+             Point3D(10,10,20),
+             Point3D(5,5,5),
+             Point3D(5,10,15),
+             Point3D(15,5,20),
+             ]
 
 ## Procedure
 set_or_construct_default_collection(nominals)
