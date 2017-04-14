@@ -30,11 +30,13 @@ set_or_construct_default_collection(nominals)
 delete_collection(actuals)
 set_or_construct_default_collection(actuals)
 
-# Station 1 
+# Add Station 
 _, instid, _ = add_new_instrument(saInstrument)
+
 
 start_instrument(actuals, instid, False, True)
 
+# Do some work
 for i in range(len(myPoints)):
     pointName = "P" + str(i+1)
 
@@ -49,6 +51,7 @@ for i in range(len(myPoints)):
 fitResult = best_fit_group_to_group(nominals, myGroup, 
                                  actuals, targetGroup, 
                                  True, fitTolerance, fitTolerance, False)
+
 stop_instrument(actuals, instid)
 
 if fitResult == mpresult.DONESUCCESS:
