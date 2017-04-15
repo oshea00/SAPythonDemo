@@ -44,7 +44,9 @@ try:
         pointName = "P" + str(i+1)
 
         construct_a_point(nominals, myGroup, pointName, 
-                          myPoints[i].X, myPoints[i].Y, myPoints[i].Z)
+                          myPoints[i].X,
+                          myPoints[i].Y,
+                          myPoints[i].Z)
 
         point_at_target(actuals, instid, nominals, myGroup, pointName)
 
@@ -53,7 +55,9 @@ try:
 
     fitResult = best_fit_group_to_group(nominals, myGroup,
                                         actuals, targetGroup,
-                                        True, fitTolerance, fitTolerance, False)
+                                        True,
+                                        fitTolerance, fitTolerance,
+                                        False)
 
     stop_instrument(actuals, instid)
 
