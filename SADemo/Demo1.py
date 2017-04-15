@@ -13,7 +13,7 @@ try:
     myPoints = [Point3D(10, 10, 10),
                 Point3D(10, 20, 10),
                 Point3D(10, 10, 20),
-                Point3D(5,   5,  5),
+                Point3D(5,  5,  5),
                 Point3D(5,  10, 15),
                 Point3D(15,  5, 20),
                 ]
@@ -35,9 +35,9 @@ try:
     set_or_construct_default_collection(actuals)
 
     # Add Station 
-    _, instid, _ = add_new_instrument(saInstrument)
+    instid, _ = add_new_instrument(saInstrument)
 
-    start_instrument(actuals, instid, False, True)
+    start_instrument(instid, False, True)
 
     # Do some work
     for i in range(len(myPoints)):
