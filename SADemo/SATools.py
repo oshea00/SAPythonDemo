@@ -6,10 +6,8 @@ from SAPyTools import MPHelper
 
 t = System.Type.GetTypeFromProgID('SpatialAnalyzerSDK.Application')
 sdk = System.Activator.CreateInstance(type = t)
+SAConnected = sdk.Connect("localhost")
 mphelper = MPHelper(sdk)
-
-if sdk.Connect("localhost") == False:
-    print "SA Not Running"
 
 class Point3D:
     def __init__(self,x,y,z):
