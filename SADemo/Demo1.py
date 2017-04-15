@@ -3,7 +3,7 @@ from SATools import *
 try:
 ## Data
     nominals = "Nominals"
-    actuals  = "Actually"
+    actuals  = "Actuals"
     myGroup  = "My Points"
     targetGroup = "Measured Points"
     singlePointProfile = "Single Pt. To SA"
@@ -61,7 +61,7 @@ try:
     if fitResult == mpresult.DONESUCCESS:
         print "Fit Good"
     else:
-        print "Fit Failed {}".format(result)
+        print "Fit Failed {}".format(fitResult)
 
 except Exception, e:
     print "Error: {}".format(str(e))
