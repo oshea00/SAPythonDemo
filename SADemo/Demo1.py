@@ -1,25 +1,25 @@
 from SATools import *
 
 try:
-## Data
+    # Data
     nominals = "Nominals"
-    actuals  = "Actuals"
-    myGroup  = "My Points"
+    actuals = "Actuals"
+    myGroup = "My Points"
     targetGroup = "Measured Points"
     singlePointProfile = "Single Pt. To SA"
     saInstrument = "Leica AT960/930"
     fitTolerance = 0.002
 
-    myPoints = [ Point3D(10,10,10),
-                 Point3D(10,20,10),
-                 Point3D(10,10,20),
-                 Point3D(5,5,5),
-                 Point3D(5,10,15),
-                 Point3D(15,5,20),
-                 ]
+    myPoints = [Point3D(10, 10, 10),
+                Point3D(10, 20, 10),
+                Point3D(10, 10, 20),
+                Point3D(5,   5,  5),
+                Point3D(5,  10, 15),
+                Point3D(15,  5, 20),
+                ]
 
-    ## Procedure
-    if SAConnected != True:
+    # Procedure
+    if not SAConnected:
         raise Exception('SA Not Connected')
 
     # cleanup job data
@@ -37,7 +37,6 @@ try:
     # Add Station 
     _, instid, _ = add_new_instrument(saInstrument)
 
-
     start_instrument(actuals, instid, False, True)
 
     # Do some work
@@ -52,9 +51,9 @@ try:
         configure_and_measure(actuals, instid, actuals, targetGroup,
                               pointName, singlePointProfile, True, True, 0)
 
-    fitResult = best_fit_group_to_group(nominals, myGroup, 
-                                     actuals, targetGroup, 
-                                     True, fitTolerance, fitTolerance, False)
+    fitResult = best_fit_group_to_group(nominals, myGroup,
+                                        actuals, targetGroup,
+                                        True, fitTolerance, fitTolerance, False)
 
     stop_instrument(actuals, instid)
 
@@ -65,4 +64,3 @@ try:
 
 except Exception, e:
     print "Error: {}".format(str(e))
-
