@@ -51,7 +51,8 @@ try:
         point_at_target(actuals, instid, nominals, myGroup, pointName)
 
         configure_and_measure(actuals, instid, actuals, targetGroup,
-                              pointName, singlePointProfile, True, True, 0)
+                              pointName, singlePointProfile,
+                              True, True, 0)
 
     fitResult = best_fit_group_to_group(nominals, myGroup,
                                         actuals, targetGroup,
