@@ -22,4 +22,5 @@ Express
 Installers/**/*.exe
 SpatialAnalyzer*.exe
 *.nupkg
+.idea/
 
