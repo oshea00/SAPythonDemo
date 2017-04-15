@@ -4,8 +4,8 @@ clr.AddReference('SAPyTools')
 from System.Collections.Generic import List
 from SAPyTools import MPHelper
 
-t = System.Type.GetTypeFromProgID('SpatialAnalyzerSDK.Application')
-sdk = System.Activator.CreateInstance(type = t)
+sdk = System.Activator.CreateInstance(
+    type = System.Type.GetTypeFromProgID('SpatialAnalyzerSDK.Application'))
 SAConnected = sdk.Connect("localhost")
 mphelper = MPHelper(sdk)
 
