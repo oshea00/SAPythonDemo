@@ -29,6 +29,10 @@ class MPResult:
 
 mpresult = MPResult()
 
+class CTE:
+    AluminumCTE_1DegF = 0.0000131
+    SteelCTE_1DegF = 0.0000065
+    CarbonFiberCTE_1DegF = 0
 
 def getIntRef():
     return clr.Reference[int]()
@@ -36,6 +40,9 @@ def getIntRef():
 
 def getStrRef():
     return clr.Reference[str]()
+
+def getDoubleRef():
+    return clr.Reference[float]()
 
 
 def construct_collection(name, makeDefault):
@@ -157,3 +164,25 @@ def best_fit_group_to_group(refCollection, refGroup,
  
 def delete_objects(listobj):
     mphelper.DeleteObjects(List[str](listobj))
+
+def rename_collection(fromName, toName):
+    sdk.SetStep("Rename Collection")
+    sdk.SetCollectionNameArg("Original Collection Name", fromName)
+    sdk.SetCollectionNameArg("New Collection Name", toName)
+    sdk.ExecuteStep()
+
+def compute_CTE_scale_factor(cte, parttemp):
+    scaleFactor = getDoubleRef()
+    sdk.SetStep("Compute CTE Scale Factor")
+    sdk.SetDoubleArg("Material CTE (1/Deg F)", cte)
+    sdk.SetDoubleArg("Initial Temperature (F)", parttemp)
+    sdk.SetDoubleArg("Final Temperature (F)", 69.000000)
+    sdk.ExecuteStep()
+    sdk.GetDoubleArg("Scale Factor", scaleFactor)
+    return scaleFactor
+
+def set_instrument_scale_absolute(collection, instid, scaleFactor):
+    sdk.SetStep("Set (absolute) Instrument Scale Factor (CAUTION!)")
+    sdk.SetColInstIdArg("Instrument's ID", collection, instid)
+    sdk.SetDoubleArg("Scale Factor", scaleFactor)
+    sdk.ExecuteStep()
