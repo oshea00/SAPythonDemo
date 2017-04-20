@@ -176,7 +176,7 @@ def compute_CTE_scale_factor(cte, parttemp):
     sdk.SetStep("Compute CTE Scale Factor")
     sdk.SetDoubleArg("Material CTE (1/Deg F)", cte)
     sdk.SetDoubleArg("Initial Temperature (F)", parttemp)
-    sdk.SetDoubleArg("Final Temperature (F)", 69.000000)
+    sdk.SetDoubleArg("Final Temperature (F)", 68.000000)
     sdk.ExecuteStep()
     sdk.GetDoubleArg("Scale Factor", scaleFactor)
     return scaleFactor

@@ -12,6 +12,7 @@ class MyDialog(Forms.Form):
         self.Text ='Prompt'
         self.Height = 120
         self.Width = 400
+        self.StartPosition = Forms.FormStartPosition.CenterScreen
         lbl_prompt = Forms.Label(Visible=True, Left=0, Top=12, Text="Answer", Width=150, Font=font)
         txt_input = Forms.TextBox(Visible=True, Left=160, Top=10, Width=180, Text="", Font=font)
         ok_button = Forms.Button(Text='OK', Visible=True, Left=50, Top=50)
@@ -40,3 +41,6 @@ def user_query(prompt):
         return md.result
     else:
         return ""
+
+#md = MyDialog()
+#md.ShowDialog()
