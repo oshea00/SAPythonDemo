@@ -6,6 +6,7 @@ from SAPyTools import MPHelper
 
 sdk = System.Activator.CreateInstance(
     type=System.Type.GetTypeFromProgID('SpatialAnalyzerSDK.Application'))
+
 SAConnected = sdk.Connect("localhost")
 mphelper = MPHelper(sdk)
 
